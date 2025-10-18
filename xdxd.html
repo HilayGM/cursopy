@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuadro Comparativo de Metodologías de Desarrollo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuración de colores personalizados y fuente Inter
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'waterfall': '#2563eb',   // Azul para Cascada
+                        'cmmi': '#4ade80',        // Verde para CMMI/Mejora de Procesos
+                        'psp-tsp': '#facc15',     // Amarillo para PSP/TSP
+                        'scrum': '#f97316',       // Naranja para Scrum
+                        'xp': '#8b5cf6',          // Morado para XP
+                        'header-bg': '#1f2937',
+                        'agile-bg': '#ecfdf5',
+                        'trad-bg': '#eff6ff',
+                        'text-dark': '#111827',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .category-header {
+            background-color: #1f2937;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-align: left;
+            border-radius: 0.5rem 0.5rem 0 0;
+            margin-top: 1.5rem;
+        }
+
+        .card-tradicional {
+            border-top: 5px solid #2563eb;
+            background-color: #f7f9fd;
+        }
+
+        .card-agil {
+            border-top: 5px solid #f97316;
+            background-color: #fffbeb;
+        }
+
+        .feature-box {
+            @apply p-4 rounded-lg bg-white shadow-sm border border-gray-100 mb-4;
+        }
+
+        /* Responsive table structure for small screens */
+        @media (max-width: 1024px) {
+            .table-responsive > div {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-text-dark p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        
+        <header class="bg-header-bg p-6 md:p-10 rounded-xl shadow-2xl text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white">
+                Cuadro Comparativo de <span class="text-scrum">Metodologías</span>
+            </h1>
+            <p class="mt-3 text-lg text-gray-400">
+                Clasificación y Características de Enfoques de Desarrollo de Software
+            </p>
+        </header>
+
+        <!-- Contenedor Principal de la Tabla Responsiva -->
+        <div class="overflow-x-auto">
+            <table class="w-full lg:min-w-[1200px] border-separate border-spacing-y-4">
+                
+                <thead>
+                    <tr class="bg-gray-200 text-left font-bold text-sm uppercase tracking-wider text-gray-700">
+                        <th class="p-4 rounded-l-lg w-1/5">Característica</th>
+                        <th class="p-4 w-1/5">Cascada</th>
+                        <th class="p-4 w-1/5">CMMI</th>
+                        <th class="p-4 w-1/5">PSP/TSP</th>
+                        <th class="p-4 w-1/5">Scrum</th>
+                        <th class="p-4 rounded-r-lg w-1/5">XP</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <!-- Fila 1: Clasificación -->
+                    <tr class="bg-white shadow-md rounded-lg">
+                        <td class="p-4 font-bold border-l-4 border-gray-500 rounded-l-lg">Clasificación</td>
+                        <td class="p-4 text-waterfall font-semibold">Tradicional (Rígida)</td>
+                        <td class="p-4 text-cmmi font-semibold">Mejora de Procesos</td>
+                        <td class="p-4 text-cmmi font-semibold">Mejora de Procesos</td>
+                        <td class="p-4 text-scrum font-semibold">Ágil (Incremental)</td>
+                        <td class="p-4 text-xp font-semibold rounded-r-lg">Ágil (Ingeniería)</td>
+                    </tr>
+
+                    <!-- Fila 2: Fecha de Creación/Auge -->
+                    <tr class="bg-white shadow-md rounded-lg">
+                        <td class="p-4 font-bold border-l-4 border-gray-500 rounded-l-lg">Fecha de Creación/Auge</td>
+                        <td class="p-4">1970; Auge 70s-80s.</td>
+                        <td class="p-4">CMM 1987; CMMI 2002/2018.</td>
+                        <td class="p-4">Años 90 (PSP y TSP).</td>
+                        <td class="p-4">Formalizado en 1995.</td>
+                        <td class="p-4 rounded-r-lg">Mediados de los 90.</td>
+                    </tr>
+                    
+                    <!-- Fila 3: Autor -->
+                    <tr class="bg-white shadow-md rounded-lg">
+                        <td class="p-4 font-bold border-l-4 border-gray-500 rounded-l-lg">Autor</td>
+                        <td class="p-4">Winston W. Royce</td>
+                        <td class="p-4">Software Engineering Institute (SEI)</td>
+                        <td class="p-4">Watts S. Humphrey</td>
+                        <td class="p-4">Jeff Sutherland y Ken Schwaber</td>
+                        <td class="p-4 rounded-r-lg">Kent Beck</td>
+                    </tr>
+                    
+                    <!-- Fila 4: Razón de Ser (Objetivo) -->
+                    <tr class="bg-white shadow-md rounded-lg">
+                        <td class="p-4 font-bold border-l-4 border-gray-500 rounded-l-lg">Razón de Ser</td>
+                        <td class="p-4 text-sm">Establecer procesos formales y secuenciales (Requisitos Estables).</td>
+                        <td class="p-4 text-sm">Evaluar y mejorar la madurez de los procesos de la organización.</td>
+                        <td class="p-4 text-sm">Mejorar la calidad y productividad individual (PSP) y de equipo (TSP).</td>
+                        <td class="p-4 text-sm">Maximizar la flexibilidad y productividad en entornos complejos y cambiantes.</td>
+                        <td class="p-4 text-sm rounded-r-lg">Mejorar la calidad y la respuesta a cambios mediante prácticas de ingeniería extremas.</td>
+                    </tr>
+
+                    <!-- Fila 5: Conceptos Clave -->
+                    <tr class="bg-white shadow-md rounded-lg">
+                        <td class="p-4 font-bold border-l-4 border-gray-500 rounded-l-lg">Conceptos Clave</td>
+                        <td class="p-4 text-xs">**Secuencial**, Fases Lineales, Documentación Exhaustiva, Rigidez.</td>
+                        <td class="p-4 text-xs">**Niveles de Madurez** (1 a 5), Áreas de Proceso, Estandarización.</td>
+                        <td class="p-4 text-xs">PSP (Individual), TSP (Equipo), Medición de Tiempo y Defectos, Planificación Detallada.</td>
+                        <td class="p-4 text-xs">**Sprint**, Product Backlog, Daily Scrum, Product Owner, Scrum Master.</td>
+                        <td class="p-4 text-xs rounded-r-lg">**Programación en Parejas**, **TDD**, Integración Continua, Refactorización.</td>
+                    </tr>
+                    
+                    <!-- Fila 6: Principales Ventajas -->
+                    <tr class="bg-white shadow-md rounded-lg">
+                        <td class="p-4 font-bold border-l-4 border-gray-500 rounded-l-lg">Ventajas</td>
+                        <td class="p-4 text-xs text-green-700">Claridad, Estructura, **Previsibilidad de Costos**, Documentación Completa.</td>
+                        <td class="p-4 text-xs text-green-700">Mejora continua, **Estandarización**, Reducción de Riesgos (por nivel).</td>
+                        <td class="p-4 text-xs text-green-700">Mejora de la **Calidad Individual/Equipo**, Estimaciones Precisas, Reduce Defectos Tempranos.</td>
+                        <td class="p-4 text-xs text-green-700">**Flexibilidad**, Adaptabilidad, Entrega Temprana de Valor, Transparencia.</td>
+                        <td class="p-4 text-xs text-green-700 rounded-r-lg">**Alta Calidad del Software**, Retroalimentación Rápida, Máxima Flexibilidad.</td>
+                    </tr>
+                    
+                    <!-- Fila 7: Principales Desventajas -->
+                    <tr class="bg-white shadow-md rounded-lg">
+                        <td class="p-4 font-bold border-l-4 border-gray-500 rounded-l-lg">Desventajas</td>
+                        <td class="p-4 text-xs text-red-700">**Poca Flexibilidad**, Requisitos Fijos, Alto Costo de Errores Tardíos, Producto Tarde.</td>
+                        <td class="p-4 text-xs text-red-700">Alto Costo/Tiempo de Implementación, **Burocrático** (niveles bajos), Requiere Compromiso Total.</td>
+                        <td class="p-4 text-xs text-red-700">Dependencia de la **Autodisciplina**, Resistencia al Cambio por Registro, Menor Flexibilidad Ágil.</td>
+                        <td class="p-4 text-xs text-red-700">Difícil **Escalabilidad** (equipos grandes), Alta Participación del Cliente Obligatoria.</td>
+                        <td class="p-4 text-xs text-red-700 rounded-r-lg">Demanda **Alta Participación del Cliente**, Sobrecarga por Prácticas, Poca Documentación Formal.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Vista de Tarjetas (Mobile/Tablet) -->
+        <div class="mt-12 lg:hidden">
+            <h2 class="text-3xl font-bold text-center mb-6 text-text-dark">Vista Detallada (Responsiva)</h2>
+            
+            <div class="space-y-8">
+                
+                <!-- Cascada Card -->
+                <div class="card-tradicional p-6 rounded-xl shadow-xl">
+                    <h3 class="text-2xl font-extrabold text-waterfall mb-4 border-b pb-2">Metodología de Cascada</h3>
+                    <div class="feature-box"><span class="font-bold">Clasificación:</span> Tradicional (Secuencial y Rígida)</div>
+                    <div class="feature-box"><span class="font-bold">Autor:</span> Winston W. Royce</div>
+                    <div class="feature-box"><span class="font-bold">Conceptos Clave:</span> **Secuencial**, Fases Lineales, Documentación Exhaustiva, Rigidez.</div>
+                    <div class="feature-box bg-green-50 text-green-700 border-green-200"><span class="font-bold">Ventajas:</span> Claridad, Estructura, **Previsibilidad de Costos**, Documentación Completa.</div>
+                    <div class="feature-box bg-red-50 text-red-700 border-red-200"><span class="font-bold">Desventajas:</span> **Poca Flexibilidad**, Requisitos Fijos, Alto Costo de Errores Tardíos.</div>
+                </div>
+
+                <!-- CMMI Card -->
+                <div class="card-tradicional p-6 rounded-xl shadow-xl">
+                    <h3 class="text-2xl font-extrabold text-cmmi mb-4 border-b pb-2">CMMI</h3>
+                    <div class="feature-box"><span class="font-bold">Clasificación:</span> Modelo de Madurez/Mejora de Procesos</div>
+                    <div class="feature-box"><span class="font-bold">Autor:</span> Software Engineering Institute (SEI)</div>
+                    <div class="feature-box"><span class="font-bold">Conceptos Clave:</span> **Niveles de Madurez** (1 a 5), Áreas de Proceso, Estandarización.</div>
+                    <div class="feature-box bg-green-50 text-green-700 border-green-200"><span class="font-bold">Ventajas:</span> Mejora continua, **Estandarización**, Reducción de Riesgos (por nivel).</div>
+                    <div class="feature-box bg-red-50 text-red-700 border-red-200"><span class="font-bold">Desventajas:</span> Alto Costo/Tiempo de Implementación, **Burocrático**, Requiere Compromiso Total.</div>
+                </div>
+                
+                <!-- PSP/TSP Card -->
+                <div class="card-tradicional p-6 rounded-xl shadow-xl">
+                    <h3 class="text-2xl font-extrabold text-psp-tsp mb-4 border-b pb-2">PSP/TSP</h3>
+                    <div class="feature-box"><span class="font-bold">Clasificación:</span> Modelo de Mejora de Procesos</div>
+                    <div class="feature-box"><span class="font-bold">Autor:</span> Watts S. Humphrey</div>
+                    <div class="feature-box"><span class="font-bold">Conceptos Clave:</span> PSP (Individual), TSP (Equipo), Medición de Tiempo y Defectos, Planificación Detallada.</div>
+                    <div class="feature-box bg-green-50 text-green-700 border-green-200"><span class="font-bold">Ventajas:</span> Mejora de la **Calidad Individual/Equipo**, Estimaciones Precisas, Reduce Defectos Tempranos.</div>
+                    <div class="feature-box bg-red-50 text-red-700 border-red-200"><span class="font-bold">Desventajas:</span> Dependencia de la **Autodisciplina**, Resistencia al Cambio por Registro, Menor Flexibilidad Ágil.</div>
+                </div>
+
+                <!-- Scrum Card -->
+                <div class="card-agil p-6 rounded-xl shadow-xl">
+                    <h3 class="text-2xl font-extrabold text-scrum mb-4 border-b pb-2">Scrum</h3>
+                    <div class="feature-box"><span class="font-bold">Clasificación:</span> Ágil (Marco de trabajo iterativo e incremental)</div>
+                    <div class="feature-box"><span class="font-bold">Autor:</span> Jeff Sutherland y Ken Schwaber</div>
+                    <div class="feature-box"><span class="font-bold">Conceptos Clave:</span> **Sprint**, Product Backlog, Daily Scrum, Product Owner, Scrum Master.</div>
+                    <div class="feature-box bg-green-50 text-green-700 border-green-200"><span class="font-bold">Ventajas:</span> **Flexibilidad**, Adaptabilidad, Entrega Temprana de Valor, Transparencia.</div>
+                    <div class="feature-box bg-red-50 text-red-700 border-red-200"><span class="font-bold">Desventajas:</span> Difícil **Escalabilidad**, Alta Participación del Cliente Obligatoria.</div>
+                </div>
+
+                <!-- XP Card -->
+                <div class="card-agil p-6 rounded-xl shadow-xl">
+                    <h3 class="text-2xl font-extrabold text-xp mb-4 border-b pb-2">Extreme Programming (XP)</h3>
+                    <div class="feature-box"><span class="font-bold">Clasificación:</span> Ágil (Metodología centrada en la ingeniería de software)</div>
+                    <div class="feature-box"><span class="font-bold">Autor:</span> Kent Beck</div>
+                    <div class="feature-box"><span class="font-bold">Conceptos Clave:</span> **Programación en Parejas**, **TDD**, Integración Continua, Refactorización.</div>
+                    <div class="feature-box bg-green-50 text-green-700 border-green-200"><span class="font-bold">Ventajas:</span> **Alta Calidad del Software**, Retroalimentación Rápida, Máxima Flexibilidad.</div>
+                    <div class="feature-box bg-red-50 text-red-700 border-red-200"><span class="font-bold">Desventajas:</span> Demanda **Alta Participación del Cliente**, Poca Documentación Formal.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

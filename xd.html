@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Infografía – Estándares Globales de Ciberseguridad</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#94a3b8; --accent:#00b4d8; --accent2:#7c3aed; --glass: rgba(255,255,255,0.04);
+      --max-width:1100px; --pad:20px; --radius:14px; --shadow: 0 8px 30px rgba(2,6,23,0.6);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071024 0%, #081225 60%);color:#e6eef8}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:var(--pad);}
+    .header{display:flex;align-items:center;gap:18px;margin-bottom:18px}
+    .logo{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(124,58,237,0.2)}
+    .logo svg{filter:drop-shadow(0 6px 18px rgba(0,180,216,0.12));}
+    h1{margin:0;font-size:20px;letter-spacing:0.2px}
+    p.lead{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
+
+    /* Main card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+
+    /* Comparative table */
+    .table{display:grid;grid-template-columns:220px 1fr 1fr 1fr;gap:8px;align-items:start}
+    .table .head{font-weight:700;color:#cfeefd;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:10px}
+    .table .cell{background:var(--glass);padding:12px;border-radius:10px;font-size:13px;color:#dbeafe}
+    .table .col-title{color:#a5b4fc;font-weight:700}
+
+    /* Features lists */
+    .three-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:999px;font-size:13px}
+
+    /* Right aside */
+    .aside{position:sticky;top:28px}
+    .aside .box{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:14px;border-radius:12px}
+    .aside h3{margin:0 0 8px;font-size:15px}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Footer */
+    footer{margin-top:14px;color:var(--muted);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:920px){
+      .grid{grid-template-columns:1fr;}
+      .table{grid-template-columns:180px 1fr}
+      .three-cols{grid-template-columns:1fr}
+      .aside{position:static}
+    }
+
+    /* Print friendly */
+    @media print{
+      body{background:white;color:black}
+      .card, .aside .box{box-shadow:none;background:white}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="logo" aria-hidden>
+        <!-- simple shield icon -->
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L4 5v6c0 5 3 9 8 11 5-2 8-6 8-11V5l-8-3z" fill="white" opacity="0.95"/>
+          <path d="M9 11l2 2 4-4" stroke="#021124" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h1>Estándares Globales de Ciberseguridad</h1>
+        <p class="lead">ISO 27001 · NIST CSF · COBIT — Marcos que protegen activos, gestionan riesgos y alinean TI con objetivos de negocio.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <main class="card">
+        <h2 style="margin-top:0">Tabla Comparativa</h2>
+
+        <div class="table" style="margin-top:12px">
+          <div class="head">Criterio</div>
+          <div class="head">ISO/IEC 27001</div>
+          <div class="head">NIST CSF</div>
+          <div class="head">COBIT</div>
+
+          <!-- Row: Enfoque Principal -->
+          <div class="cell col-title">Enfoque Principal</div>
+          <div class="cell">Establecer, implementar, mantener y mejorar un <strong>SGSI</strong> basado en mejora continua (PDCA).</div>
+          <div class="cell">Gestión de riesgos de ciberseguridad, flexible y orientado a infraestructura crítica.</div>
+          <div class="cell">Gobernanza y gestión de TI, alineando inversiones tecnológicas con estrategia y objetivos.</div>
+
+          <!-- Alcance -->
+          <div class="cell col-title">Alcance</div>
+          <div class="cell">Certificable. Estructura de alto nivel y catálogo de controles (ISO 27002).</div>
+          <div class="cell">Guía de buenas prácticas (no certificable). Marco flexible basado en riesgos.</div>
+          <div class="cell">Marco de gobernanza con objetivos de control y métricas de desempeño.</div>
+
+          <!-- Puntos Fuertes -->
+          <div class="cell col-title">Puntos Fuertes</div>
+          <div class="cell">Certificación reconocida globalmente — útil ante clientes y reguladores.</div>
+          <div class="cell">Flexible y adaptable — fácil integración con otros marcos, enfoque en riesgo.</div>
+          <div class="cell">Alineación estratégica — traduce TI y seguridad a valor de negocio.</div>
+
+          <!-- Puntos Débiles -->
+          <div class="cell col-title">Puntos Débiles</div>
+          <div class="cell">Rígido y costoso de implementar; alto esfuerzo documental para certificación.</div>
+          <div class="cell">No certificable — no ofrece garantía formal a terceros.</div>
+          <div class="cell">Complejo para PyMEs; requiere madurez organizacional en gestión de procesos.</div>
+
+          <!-- Aplicación Ideal -->
+          <div class="cell col-title">Aplicación Ideal</div>
+          <div class="cell">Empresas que necesitan certificación (proveedores cloud, grandes empresas con contratos internacionales).</div>
+          <div class="cell">Organizaciones enfocadas en gestión de riesgos y respuesta a amenazas (sector público, infraestructura crítica).</div>
+          <div class="cell">Organizaciones que buscan maximizar valor de TI y asegurar que la seguridad impulse objetivos (finanzas, directorios).</div>
+
+          <!-- Funciones Clave -->
+          <div class="cell col-title">Funciones Clave</div>
+          <div class="cell">Mejora Continua (PDCA); Evaluación de Riesgos; Declaración de Aplicabilidad (SoA).</div>
+          <div class="cell">Identificar · Proteger · Detectar · Responder · Recuperar.</div>
+          <div class="cell">Satisfacer necesidades de stakeholders; cubrir la empresa extremo a extremo; enfoque holístico; separar gobierno/gestión.</div>
+
+        </div>
+
+        <div class="three-cols">
+          <div class="pill"><strong>Mensaje:</strong><span class="small">Adoptar marcos internacionales fortalece la competitividad y protege activos en empresas mexicanas.</span></div>
+          <div class="pill"><strong>Recomendación:</strong><span class="small">Combinar marcos: ISO para certificación, NIST para operaciones y COBIT para gobernanza estratégica.</span></div>
+          <div class="pill"><strong>Ideal para:</strong><span class="small">PyMEs, sector público, grandes corporativos — según objetivos y madurez.</span></div>
+        </div>
+
+        <footer>
+          Fuente: Resumen comparativo de ISO 27001, NIST CSF y COBIT — guía práctica para empresas mexicanas.
+        </footer>
+      </main>
+
+      <aside class="aside">
+        <div class="box card">
+          <h3>Funciones / Map rápido</h3>
+          <ol style="margin:8px 0 0 18px;color:var(--muted)">
+            <li><strong>ISO 27001:</strong> PDCA → Planificar, Hacer, Verificar, Actuar.</li>
+            <li><strong>NIST CSF:</strong> Identificar → Proteger → Detectar → Responder → Recuperar.</li>
+            <li><strong>COBIT:</strong> 5 principios para alinear TI con negocio y medir desempeño.</li>
+          </ol>
+
+          <h3 style="margin-top:12px">¿Por dónde empezar?</h3>
+          <p class="small">1) Evaluación de madurez; 2) Definir objetivos; 3) Priorizar controles; 4) Medir y mejorar.</p>
+
+          <h3 style="margin-top:12px">Tips rápidos</h3>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>Documenta políticas clave.</li>
+            <li>Involucra dirección y TI.</li>
+            <li>Aplica un enfoque basado en riesgos.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</body>
+</html>
